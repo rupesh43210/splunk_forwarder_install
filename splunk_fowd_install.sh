@@ -45,6 +45,8 @@ sudo /opt/splunkforwarder/bin/splunk start --accept-license
 
 sudo /opt/splunkforwarder/bin/splunk add forward-server 52.220.216.171:9997
 
+sudo /opt/splunkforwarder/bin/splunk add forward-server 18.136.108.87:9997
+
 sudo /opt/splunkforwarder/bin/splunk add monitor /var/log
 
 sudo /opt/splunkforwarder/bin/splunk start
