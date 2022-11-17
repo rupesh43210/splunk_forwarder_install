@@ -65,7 +65,9 @@ read -p "Do you want to configure destination server for monitoring? (y/N): " us
                else  forarderdestconfig
                fi  
 
-read "Do you want add nmonitor? (y/N)" userinputmonitor
+
+
+read -p "Do you want add Monitor? (y/N): " userinputmonitor
 
                if [[ -z $userinput ]]; then
                         if [[ $userinputmonitor == Y || $userinputmonitor == y ]]; then
@@ -76,6 +78,9 @@ read "Do you want add nmonitor? (y/N)" userinputmonitor
                         fi      
                else  forarderdestconfig
                fi  
+
+
+
 
 forarderdestconfig
 
