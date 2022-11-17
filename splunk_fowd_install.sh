@@ -22,22 +22,7 @@ sudo apt install -y git
 
 sudo apt install -y wget 
 
-wget -O splunkforwarder-9.0.2-17e00c557dc1-Linux-x86_64.tgz "https://download.splunk.com/products/universalforwarder/releases/9.0.2/linux/splunkforwarder-9.0.2-17e00c557dc1-Linux-x86_64.tgz"
-
-tar -xvzf splunk*.tgz -C /opt
-
-useradd -m splunk
-
-export SPLUNK_HOME="/opt/splunkforwarder"
-
-mkdir $SPLUNK_HOME
-
-chown -R splunk:splunk $SPLUNK_HOM
-
-chown -R splunk:splunk /opt/splunkforwarder
-
-sudo /opt/splunkforwarder/bin/splunk start --accept-license
-
+#setup functions
 
 forarderdestconfig(){
          read -p -n 15 "enter the destination IP or FQDN of splunk monitor/server: " destination_IP
@@ -53,6 +38,23 @@ forarderdmonconfig(){
    }
 
 
+
+#Proceed with script fetching and innstallation
+wget -O splunkforwarder-9.0.2-17e00c557dc1-Linux-x86_64.tgz "https://download.splunk.com/products/universalforwarder/releases/9.0.2/linux/splunkforwarder-9.0.2-17e00c557dc1-Linux-x86_64.tgz"
+
+tar -xvzf splunk*.tgz -C /opt
+
+useradd -m splunk
+
+export SPLUNK_HOME="/opt/splunkforwarder"
+
+mkdir $SPLUNK_HOME
+
+chown -R splunk:splunk $SPLUNK_HOM
+
+chown -R splunk:splunk /opt/splunkforwarder
+
+sudo /opt/splunkforwarder/bin/splunk start --accept-license
 
 
 read -r -p "Do you want to configure destination server for monitoring?: (y/N): " userinput
