@@ -68,7 +68,7 @@ read -r -p "Do you want to configure destination server for monitoring?: (y/N): 
                                        if [[ $userinputmonitor == Y || $userinputmonitor == y ]]; then
                                           forarderdmonconfig
                                        elif [[ $userinputmonitor == N || $userinputmonitor == n ]]; then
-                                          echo "you can add monitor later using - splunk add monitor $addmonitor"
+                                          echo "you can add monitor later using command - splunk add monitor $addmonitor"
                                        fi      
                               else  forarderdmonconfig
                               fi  
