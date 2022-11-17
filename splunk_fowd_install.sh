@@ -48,7 +48,7 @@ forarderdestconfig(){
          sudo /opt/splunkforwarder/bin/splunk add forward-server "$finaldestination"
    }
 
-forarderdestconfig(){
+forarderdmonconfig(){
          read -p "full path of the directory you want to monitor: " addmonitor
          sudo /opt/splunkforwarder/bin/splunk add monitor "$addmonitor"
    }
@@ -73,12 +73,12 @@ read -r -p "Do you want add Monitor? (y/N): " userinputmonitor
 
                if [[ -z $userinput]]; then
                         if [[ $userinputmonitor == Y || $userinputmonitor == y ]]; then
-                           forarderdestconfig
+                           forarderdmonconfig
                         elif [[ $userinputmonitor == N || $userinputmonitor == n ]]; then
                            echo "you can add monitor later using - splunk add monitor $addmonitor
                } "
                         fi      
-               else  forarderdestconfig
+               else  forarderdmonconfig
                fi  
 
 
