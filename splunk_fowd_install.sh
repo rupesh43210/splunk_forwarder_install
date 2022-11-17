@@ -75,7 +75,7 @@ read -r -p "Do you want add Monitor? (Y/n): " userinputmonitor
                         if [[ $userinputmonitor == Y || $userinputmonitor == y ]]; then
                            forarderdmonconfig
                         elif [[ $userinputmonitor == N || $userinputmonitor == n ]]; then
-                           echo "you can add monitor later using - splunk add monitor $addmonitor"                
+                           echo "you can add monitor later using - splunk add monitor $addmonitor"
                         fi      
                else  forarderdmonconfig
                fi  
