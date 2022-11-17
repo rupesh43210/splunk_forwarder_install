@@ -45,18 +45,18 @@ forarderdestconfig(){
          read -p "enter the destination PORT of splunk monitor/server: " destport
          echo you have set destination monitoring server as "$destination_IP:$destport"
          finaldestination="$destination_IP:$destport"
-         sudo /opt/splunkforwarder/bin/splunk add forward-server "$finaldestination""
+         sudo /opt/splunkforwarder/bin/splunk add forward-server "$finaldestination"
    }
 
 forarderdestconfig(){
          read -p "full path of the directory you want to monitor: " addmonitor
-         sudo /opt/splunkforwarder/bin/splunk add monitor $addmonitor
+         sudo /opt/splunkforwarder/bin/splunk add monitor "$addmonitor"
    }
 
 
 
 
-read -p "Do you want to configure destination server for monitoring? (y/N): " userinput
+read -r -p "Do you want to configure destination server for monitoring?: (y/N): " userinput
 
                if [[ -z $userinput ]]; then
                         if [[ $userinput == Y || $userinput == y ]]; then
@@ -69,9 +69,9 @@ read -p "Do you want to configure destination server for monitoring? (y/N): " us
 
 
 
-read -p "Do you want add Monitor? (y/N): " userinputmonitor
+read -r -p "Do you want add Monitor? (y/N): " userinputmonitor
 
-               if [[ -z $userinput ]]; then
+               if [[ -z $userinput]]; then
                         if [[ $userinputmonitor == Y || $userinputmonitor == y ]]; then
                            forarderdestconfig
                         elif [[ $userinputmonitor == N || $userinputmonitor == n ]]; then
