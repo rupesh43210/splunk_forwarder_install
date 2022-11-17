@@ -25,8 +25,8 @@ sudo apt install -y wget
 #setup functions
 
 forarderdestconfig(){
-         read -p "Enter the destination IP or FQDN of splunk monitor/server: " destination_IP
-         read -p "Enter the destination PORT of splunk monitor/server: " destport
+         read -r -p "Enter the destination IP or FQDN of splunk monitor/server: " destination_IP
+         read -r -p "Enter the destination PORT of splunk monitor/server: " destport
          echo you have set destination monitoring server as "$destination_IP:$destport"
             if [[ -z $destination_IP && -z $destport ]]; then
                finaldestination="$destination_IP:$destport"
@@ -37,9 +37,9 @@ forarderdestconfig(){
    }
 
 forarderdmonconfig(){
-         read -p "full path of the directory you want to monitor: " addmonitor
+         read -r -p "full path of the directory you want to monitor: " addmonitor
 
-         if [[ -z $addmonitor]]; then
+         if [[ -z $addmonitor ]]; then
          sudo /opt/splunkforwarder/bin/splunk add monitor "$addmonitor"
          else echo "invalid entry"
             forarderdestconfig
