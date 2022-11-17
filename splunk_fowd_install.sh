@@ -59,7 +59,7 @@ export SPLUNK_HOME="/opt/splunkforwarder"
 
 mkdir $SPLUNK_HOME
 
-chown -R splunk:splunk $SPLUNK_HOM
+chown -R splunk:splunk $SPLUNK_HOME
 
 chown -R splunk:splunk /opt/splunkforwarder
 
