@@ -47,7 +47,7 @@ forarderdestconfig(){
    }
 
 forarderdestconfig(){
-         read -p "full path of the directory you want yo monitor: " addmonitor
+         read -p "full path of the directory you want to monitor: " addmonitor
          sudo /opt/splunkforwarder/bin/splunk add monitor $addmonitor
    }
 
