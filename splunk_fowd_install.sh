@@ -42,8 +42,10 @@ sudo /opt/splunkforwarder/bin/splunk start --accept-license
 
 forarderdestconfig(){
          read -p "enter the destination IP or FQDN of splunk monitor/server: " destination_IP
-         read -p "enter the destination PORT of splunk monitor/server: " destport         
-         sudo /opt/splunkforwarder/bin/splunk add forward-server $destination_IP:$destport
+         read -p "enter the destination PORT of splunk monitor/server: " destport
+         echo you have set destination monitoring server as "$destination_IP:$destport"
+         finaldestination="$destination_IP:$destport"
+         sudo /opt/splunkforwarder/bin/splunk add forward-server "$finaldestination""
    }
 
 forarderdestconfig(){
