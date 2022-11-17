@@ -43,10 +43,40 @@ sudo /opt/splunkforwarder/bin/splunk start --accept-license
 
 /opt/splunkforwarder/bin/splunk enable boot-start
 
-sudo /opt/splunkforwarder/bin/splunk add forward-server 52.220.216.171:9997
+forarderdestconfig(){
+         read -p "enter the destination IP or FQDN of splunk monitor/server" destination_IP
+         read -p "enter the destination PORT of splunk monitor/server" destport
+         sudo /opt/splunkforwarder/bin/splunk add forward-server $destination_IP:$destport
+   }
 
-sudo /opt/splunkforwarder/bin/splunk add forward-server 18.136.108.87:9997
+forarderdestconfig(){
+         read -p "full path of the directory you want yo monitor" addmonitor
+         sudo /opt/splunkforwarder/bin/splunk add monitor $addmonitor
+   }
 
-sudo /opt/splunkforwarder/bin/splunk add monitor /var/log
+read "Do you want to configure destination server for monitoring? (y/N)"userinput
+
+   if [[ -z $userinput ]]; then
+            if [[ $userinput == Y || $userinput == y ]]; then
+               forarderdestconfig
+            elif [[ $userinput == N || $userinput == n ]]; then
+               echo "you can congigure destination later using the command - splunk add forward-server $destination_IP:$destport "
+            fi      
+   else  forarderdestconfig
+   fi  
+
+read "Do you want add nmonitor? (y/N)"userinputmonitor
+
+   if [[ -z $userinput ]]; then
+            if [[ $userinputmonitor == Y || $userinputmonitor == y ]]; then
+               forarderdestconfig
+            elif [[ $userinputmonitor == N || $userinputmonitor == n ]]; then
+               echo "you can add monitor later using - splunk add monitor $addmonitor
+   } "
+            fi      
+   else  forarderdestconfig
+   fi  
+
+   forarderdestconfig
 
 sudo /opt/splunkforwarder/bin/splunk start
