@@ -31,15 +31,15 @@ forarderdestconfig(){
             if [[  $destination_IP &&  $destport ]]; then
                finaldestination="$destination_IP:$destport"
                sudo /opt/splunkforwarder/bin/splunk add forward-server "$finaldestination"
-               else echo "invalid entry"
-                     forarderdestconfig
-               fi
+            else echo "invalid entry"
+                 forarderdestconfig
+            fi
    }
 
 forarderdmonconfig(){
          read -r -p "full path of the directory you want to monitor: " addmonitor
 
-         if [[ -z $addmonitor ]]; then
+         if [[ $addmonitor ]]; then
          sudo /opt/splunkforwarder/bin/splunk add monitor "$addmonitor"
          else echo "invalid entry"
             forarderdestconfig
