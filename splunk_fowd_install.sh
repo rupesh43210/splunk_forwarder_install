@@ -38,7 +38,6 @@ forarderdestconfig(){
 
 forarderdmonconfig(){
          read -r -p "full path of the directory you want to monitor: " addmonitor
-
          if [[ $addmonitor ]]; then
          sudo /opt/splunkforwarder/bin/splunk add monitor "$addmonitor"
          else echo "invalid entry"
@@ -68,7 +67,7 @@ sudo /opt/splunkforwarder/bin/splunk start --accept-license
 
 read -r -p "Do you want to configure destination server for monitoring?: (y/N): " userinput
 
-   if [[ -z $userinput ]]; then
+   if [[ $userinput ]]; then
             if [[ $userinput == Y || $userinput == y ]]; then
                forarderdestconfig
 
