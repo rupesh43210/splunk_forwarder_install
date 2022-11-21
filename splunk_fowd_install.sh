@@ -28,9 +28,8 @@ forarderdestconfig(){
          read -r -p "Enter the destination IP or FQDN of splunk monitor/server: " destination_IP
          read -r -p "Enter the destination PORT of splunk monitor/server: " destport
          echo you have set destination monitoring server as "$destination_IP:$destport"
-            if [[ -z $destination_IP && -z $destport ]]; then
+            if [[  $destination_IP &&  $destport ]]; then
                finaldestination="$destination_IP:$destport"
-               echo sudo /opt/splunkforwarder/bin/splunk add forward-server "$finaldestination"
                sudo /opt/splunkforwarder/bin/splunk add forward-server "$finaldestination"
                else echo "invalid entry"
                      forarderdestconfig
