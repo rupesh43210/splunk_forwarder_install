@@ -30,6 +30,7 @@ forarderdestconfig(){
          echo you have set destination monitoring server as "$destination_IP:$destport"
             if [[ -z $destination_IP && -z $destport ]]; then
                finaldestination="$destination_IP:$destport"
+               echo sudo /opt/splunkforwarder/bin/splunk add forward-server "$finaldestination"
                sudo /opt/splunkforwarder/bin/splunk add forward-server "$finaldestination"
                else echo "invalid entry"
                      forarderdestconfig
