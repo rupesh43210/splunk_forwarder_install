@@ -68,25 +68,25 @@ sudo /opt/splunkforwarder/bin/splunk start --accept-license
 
 read -r -p "Do you want to configure destination server for monitoring?: (y/N): " userinput
 
-               if [[ -z $userinput ]]; then
-                        if [[ $userinput == Y || $userinput == y ]]; then
-                           forarderdestconfig
+   if [[ -z $userinput ]]; then
+            if [[ $userinput == Y || $userinput == y ]]; then
+               forarderdestconfig
 
-                              read -r -p "Do you want add Monitor? (Y/n): " userinputmonitor
-                              if [[ $userinputmonitor ]]; then
-                                       if [[ $userinputmonitor == Y || $userinputmonitor == y ]]; then
-                                          forarderdmonconfig
-                                       elif [[ $userinputmonitor == N || $userinputmonitor == n ]]; then
-                                          echo "you can add monitor later using command - splunk add monitor $addmonitor"
-                                       fi      
-                              else  forarderdmonconfig
-                              fi  
+               read -r -p "Do you want add Monitor? (Y/n): " userinputmonitor
+                     if [[ $userinputmonitor ]]; then
+                           if [[ $userinputmonitor == Y || $userinputmonitor == y ]]; then
+                               forarderdmonconfig
+                           elif [[ $userinputmonitor == N || $userinputmonitor == n ]]; then
+                                 echo "you can add monitor later using command - splunk add monitor $addmonitor"
+                           fi      
+                     else  forarderdmonconfig
+                     fi  
 
-                        elif [[ $userinput == N || $userinput == n ]]; then
+               elif [[ $userinput == N || $userinput == n ]]; then
                            echo "you can congigure destination later using the command - splunk add forward-server $destination_IP:$destport "
-                        fi      
-               else  forarderdestconfig
-               fi  
+               fi      
+   else  forarderdestconfig
+   fi  
 
 
 
