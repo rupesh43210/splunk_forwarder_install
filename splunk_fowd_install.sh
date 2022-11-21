@@ -73,7 +73,7 @@ read -r -p "Do you want to configure destination server for monitoring?: (y/N): 
                            forarderdestconfig
 
                               read -r -p "Do you want add Monitor? (Y/n): " userinputmonitor
-                              if [[ $userinputmonitor == Y || $userinputmonitor == y ]]; then
+                              if [[ $userinputmonitor ]]; then
                                        if [[ $userinputmonitor == Y || $userinputmonitor == y ]]; then
                                           forarderdmonconfig
                                        elif [[ $userinputmonitor == N || $userinputmonitor == n ]]; then
