@@ -82,7 +82,7 @@ read -r -p "Do you want to configure destination server for monitoring?: (y/N): 
                      fi  
 
                elif [[ $userinput == N || $userinput == n ]]; then
-                           echo "you can congigure destination later using the command - splunk add forward-server $destination_IP:$destport "
+                           echo "you can configure destination later using the command - splunk add forward-server $destination_IP:$destport "
                fi      
    else  forarderdestconfig
    fi  
